@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevTrack</title>
+
+    <link rel="stylesheet" href="{% static 'issues/style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <h1>DevTrack</h1>
+        <p>Engineering Issue Tracker</p>
+    </header>
+
+    <main>
+
+        <section class="card">
+            <h2>Create Issue</h2>
+
+            <form id="issueForm">
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Issue title"
+                    required
+                >
+
+                <textarea
+                    id="description"
+                    placeholder="Description"
+                    required
+                ></textarea>
+
+                <select id="status">
+                    <option value="open">Open</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="resolved">Resolved</option>
+                    <option value="closed">Closed</option>
+                </select>
+
+                <select id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                    <option value="critical">Critical</option>
+                </select>
+
+                <input
+                    type="number"
+                    id="reporter"
+                    placeholder="Reporter ID"
+                    required
+                >
+
+                <button type="submit">Create Issue</button>
+
+            </form>
+        </section>
+
+
+        <section class="card">
+
+            <div class="section-header">
+                <h2>Issues</h2>
+
+                <button onclick="loadIssues()">
+                    Refresh
+                </button>
+            </div>
+
+            <div id="issuesList">
+                Loading issues...
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="{% static 'issues/app.js' %}"></script>
+
+</body>
+</html>
